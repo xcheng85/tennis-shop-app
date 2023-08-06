@@ -1,13 +1,17 @@
 <h3 [style]="currentStyles">Player List</h3>
 <ul>
-  <li (click)="selectedPlayer = 'Roger Federer'">Roger Federer</li>
-  <li (click)="selectedPlayer = 'Rafa Nadal'">Rafa Nadal</li>
-  <li (click)="selectedPlayer = 'Novak Djorkvic'">Novak Djorkvic</li>
+  <li *ngFor="let player of players; let i=index" (click)="selectedPlayer = player">
+    #{{i+1}}. {{player}}
+  </li>
 </ul>
-<app-player-detail #player *ngIf="selectedPlayer; else noPlayer" [name]="selectedPlayer" (liked)="onPlayerLiked($event)"></app-player-detail>
+<app-player-detail
+  #player
+  *ngIf="selectedPlayer; else noPlayer"
+  [name]="selectedPlayer"
+  (liked)="onPlayerLiked($event)"
+></app-player-detail>
 <ng-template #noPlayer>
   <p>No player selected</p>
 </ng-template>
 
 <!-- <span>{{player.name}}</span> -->
-

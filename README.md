@@ -133,6 +133,10 @@ structural directives: *ngIf, *ngFor, *ngSwitch
 
 ngif + ng-template
 
+ngFor: index, even/odd, first/last
+For performance, angular object identity
+
+
 
 ## Development server
 

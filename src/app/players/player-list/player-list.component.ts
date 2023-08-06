@@ -12,6 +12,7 @@ export class PlayerListComponent implements AfterViewInit {
     width: '88px',
   };
   selectedPlayer = '';
+  players = ['Roger Federer', 'Rafa Nadal', 'Novak Djorkvic'];
 
   // property decorator
   @ViewChild(PlayerDetailComponent) playerDetail:
@@ -23,7 +24,7 @@ export class PlayerListComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    if(this.playerDetail) {
+    if (this.playerDetail) {
       console.info(this.playerDetail.Name);
     }
   }

@@ -51,6 +51,7 @@ main module and feature modules
 ng generate module players
 cd players
 ng generate component player-list
+ng generate component player-detail
 # automatically registered with players.module
 
 ```
@@ -84,9 +85,20 @@ standalone vs normal
 
 stadalone: prototying and demo
 
+## HTML
+1. unordered list: ul li
+
+
 ### Property Binding: class and style
 class: css
 
+### Event Binding
+DOM events to the method in component class
+
+### Communication between parent and child
+input and output
+
+input binding
 
 
 ## Development server

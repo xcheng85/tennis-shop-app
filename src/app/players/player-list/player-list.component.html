@@ -1,1 +1,7 @@
-<p [style]="currentStyles">player-list works!</p>
+<p [style]="currentStyles">Player List</p>
+<ul>
+  <li (click)="selectedPlayer = 'Roger Federer'">Roger Federer</li>
+  <li (click)="selectedPlayer = 'Rafa Nadal'">Rafa Nadal</li>
+  <li (click)="selectedPlayer = 'Novak Djorkvic'">Novak Djorkvic</li>
+</ul>
+<app-player-detail [name]="selectedPlayer" (liked)="onPlayerLiked()"></app-player-detail>

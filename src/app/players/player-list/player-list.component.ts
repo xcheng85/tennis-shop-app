@@ -10,4 +10,9 @@ export class PlayerListComponent {
     color: "blue",
     width: "88px"
   }
+  selectedPlayer = '';
+
+  onPlayerLiked(){
+    window.alert(`You just liked ${this.selectedPlayer}!`);
+  }
 }

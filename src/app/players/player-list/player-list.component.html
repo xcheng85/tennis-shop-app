@@ -4,4 +4,4 @@
   <li (click)="selectedPlayer = 'Rafa Nadal'">Rafa Nadal</li>
   <li (click)="selectedPlayer = 'Novak Djorkvic'">Novak Djorkvic</li>
 </ul>
-<app-player-detail [name]="selectedPlayer" (liked)="onPlayerLiked()"></app-player-detail>
+<app-player-detail [name]="selectedPlayer" (liked)="onPlayerLiked($event)"></app-player-detail>

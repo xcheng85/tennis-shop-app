@@ -12,7 +12,7 @@ export class PlayerListComponent {
   }
   selectedPlayer = '';
 
-  onPlayerLiked(){
-    window.alert(`You just liked ${this.selectedPlayer}!`);
+  onPlayerLiked(name: string){
+    window.alert(`You just liked ${name}!`);
   }
 }

@@ -7,9 +7,9 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 })
 export class PlayerDetailComponent {
   @Input() name = '';
-  @Output() liked = new EventEmitter();
+  @Output() liked = new EventEmitter<string>();
 
   like() {
-    this.liked.emit();
+    this.liked.emit(this.name);
   }
 }

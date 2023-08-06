@@ -97,8 +97,11 @@ DOM events to the method in component class
 
 ### Communication between parent and child
 input and output
-
 input binding
+input/output/eventemitter
+
+### template reference virable
+# 
 
 
 ## Development server

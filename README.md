@@ -163,6 +163,31 @@ ng generate pipe sort-by-country
 interface: PipeTransform
 the transform stream in node.js
 
+### pipe with change detection and reducer style, immutable
+reference change concept
+
+
+### custom directive
+modify appearance of dom element through access the html element
+
+
+component = directive + view
+
+directive selector == component selector
+
+structural directive
+attribute directive
+
+example1: copyright in the footer
+
+
+
+```shell
+# register with app module
+ng generate directive copyright
+```
+
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.

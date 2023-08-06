@@ -4,5 +4,10 @@
   <li (click)="selectedPlayer = 'Rafa Nadal'">Rafa Nadal</li>
   <li (click)="selectedPlayer = 'Novak Djorkvic'">Novak Djorkvic</li>
 </ul>
-<app-player-detail #player [name]="selectedPlayer" (liked)="onPlayerLiked($event)"></app-player-detail>
-<span>{{player.name}}</span>
+<app-player-detail #player *ngIf="selectedPlayer; else noPlayer" [name]="selectedPlayer" (liked)="onPlayerLiked($event)"></app-player-detail>
+<ng-template #noPlayer>
+  <p>No player selected</p>
+</ng-template>
+
+<!-- <span>{{player.name}}</span> -->
+

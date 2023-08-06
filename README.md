@@ -180,13 +180,27 @@ attribute directive
 
 example1: copyright in the footer
 
-
-
 ```shell
 # register with app module
 ng generate directive copyright
 ```
 
+ex2: tooltips
+ex3: collapsible
+ex4: infinite scrolling
+
+ex5: custom validation (property binding and responding to events)
+two angular decorators:
+@HostBinding: for html element properties: such as css class
+@HostListener: for html event
+
+
+ex6: use directives to achor dynamic angular component (without selector)
+ng-template + directive
+```
+cd ./src/app/players
+ng generate directive playerHost
+```
 
 ## Development server
 

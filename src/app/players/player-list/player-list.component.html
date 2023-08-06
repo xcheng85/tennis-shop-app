@@ -9,6 +9,11 @@
     {{slam.key}} {{slam.value}} 
   </li>
 </ul>
+<ul>
+  <li *ngFor="let player of players; let i=index" (click)="selectedPlayer = player">
+    {{player | json}}
+  </li>
+</ul>
 <app-player-detail
   #player
   *ngIf="selectedPlayer; else noPlayer"

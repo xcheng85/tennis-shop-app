@@ -2,6 +2,49 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.8.
 
+## Basic Knowledge
+main.ts
+app.module.ts
+app-root: main component
+
+app module bootstraps app component
+main.ts bootstraps app module
+
+Angular Essentials (Version 16) ext
+
+Angular Data immutability
+
+## TS
+1. Decorators
+2. Interfaces
+3. custom type 
+4. anonymous function
+5. rest parameters: variadic parames
+6. function overloading complicated;
+7. arrow function and scope. tricky
+8. spread parameters
+9. fp and the immutablility
+10. generics and interface for contracts
+11. optional chaining
+12. nullish coalescing and ternary operator
+13. class Property accessors
+14. interface in typescript, both members(schema) and function contracts
+15. interface for di and mocking test
+16. decorators: class, property, method and parameters of methods
+17. partial, record, union
+
+## Angular Module
+ddd
+main module: AppModule
+
+main module and feature modules
+
+
+```shell
+
+```
+
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.

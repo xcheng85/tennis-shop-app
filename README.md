@@ -101,7 +101,10 @@ input binding
 input/output/eventemitter
 
 ### template reference virable
-# 
+
+### css style
+scoped styling
+boundaries through view encapsulation: 
 
 
 ## Development server

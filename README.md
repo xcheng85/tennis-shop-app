@@ -207,6 +207,33 @@ ex7: toggle templates dynamiclly (Access controll)
 ng generate directive access-control
 ```
 
+## service and di
+injector: ioc container in golang, inversify, asp.net core
+interface and implementation
+
+service: globle, not tied to modules
+ddd. 
+
+@injectable decorator
+service can be injected to components, directive, another service
+root injector: like ioc container
+
+constructor injection pattern;
+method injection pattern in asp.net core
+
+### How to search the deps
+1. from the parent component
+2. not found, all the way to the root injector
+
+
+1. create player service
+
+```shell
+cd src/app/players
+ng generate service players
+
+```
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.

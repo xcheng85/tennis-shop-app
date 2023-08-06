@@ -104,7 +104,10 @@ input/output/eventemitter
 
 ### css style
 scoped styling
-boundaries through view encapsulation: 
+boundaries through view encapsulation
+
+### change detection and re-render
+
 
 
 ## Development server

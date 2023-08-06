@@ -2,6 +2,13 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.8.
 
+
+## Git
+```shell
+git remote add origin https://github.com/xcheng85/tennis-shop-app.git
+git push origin master
+```
+
 ## Basic Knowledge
 main.ts
 app.module.ts
@@ -41,8 +48,11 @@ main module and feature modules
 
 
 ```shell
-
+# ddd
+ng generate module players
 ```
+link player feature module with main module
+
 
 
 ## Development server

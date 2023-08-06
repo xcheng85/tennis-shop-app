@@ -1,18 +1,30 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit, ViewChild } from '@angular/core';
+import { PlayerDetailComponent } from '../player-detail/player-detail.component';
 
 @Component({
   selector: 'app-player-list',
   templateUrl: './player-list.component.html',
-  styleUrls: ['./player-list.component.css']
+  styleUrls: ['./player-list.component.css'],
 })
-export class PlayerListComponent {
+export class PlayerListComponent implements AfterViewInit {
   currentStyles = {
-    color: "blue",
-    width: "88px"
-  }
+    color: 'blue',
+    width: '88px',
+  };
   selectedPlayer = '';
 
-  onPlayerLiked(name: string){
+  // property decorator
+  @ViewChild(PlayerDetailComponent) playerDetail:
+    | PlayerDetailComponent
+    | undefined;
+
+  onPlayerLiked(name: string) {
     window.alert(`You just liked ${name}!`);
+  }
+
+  ngAfterViewInit(): void {
+    if(this.playerDetail) {
+      console.info(this.playerDetail.Name);
+    }
   }
 }

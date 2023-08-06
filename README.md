@@ -107,7 +107,24 @@ scoped styling
 boundaries through view encapsulation
 
 ### change detection and re-render
+onPush
 
+### component event hook
+all the interfaces that needs to implement by the component class
+
+constructor
+ngOnInit(): safe and inited, fetch data from DI services
+ngOnDestroy():
+1. structrue directive: ngif
+2. routing navigation
+unsubscirbe from observable streams
+
+ngOnChanges(): detect input binding changes
+
+AfterViewInit hook: when parent and child component are initialized
+
+### parent component acccess child component
+ViewChild property decorator
 
 
 ## Development server

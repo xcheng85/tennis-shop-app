@@ -4,7 +4,9 @@ import {
   Output,
   EventEmitter,
   ViewEncapsulation,
-  ChangeDetectionStrategy
+  ChangeDetectionStrategy,
+  OnChanges,
+  SimpleChanges
 } from '@angular/core';
 
 @Component({
@@ -14,7 +16,7 @@ import {
   encapsulation: ViewEncapsulation.Emulated,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class PlayerDetailComponent {
+export class PlayerDetailComponent implements OnChanges{
   @Input() name = '';
   @Output() liked = new EventEmitter<string>();
 
@@ -25,5 +27,9 @@ export class PlayerDetailComponent {
   get Name(): string {
     console.info(`player's name: ${this.name}`);
     return this.name;
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    
   }
 }

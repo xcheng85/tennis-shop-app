@@ -43,15 +43,49 @@ Angular Data immutability
 ## Angular Module
 ddd
 main module: AppModule
-
 main module and feature modules
 
-
+### Feature modules
 ```shell
 # ddd
 ng generate module players
+cd players
+ng generate component player-list
+# automatically registered with players.module
+
 ```
 link player feature module with main module
+
+
+```shell
+ng generate module racquets
+```
+
+raquect module needs a player list like tennis warehouse
+
+export a component publicly to be used by other module -> exports: []
+
+### Core modules
+toolbar
+footer
+loading spinner
+shared services: cache, logging
+
+### Shared moduels
+component, directive, pipelins, imported to each feature modules
+lazy loaded modules
+
+### Built-in modules
+BrowserModule
+CommonModule: angular template, directive, 
+
+## Components
+standalone vs normal
+
+stadalone: prototying and demo
+
+### Property Binding: class and style
+class: css
 
 
 

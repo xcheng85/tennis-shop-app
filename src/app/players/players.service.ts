@@ -14,18 +14,22 @@ export class PlayersService {
       {
         name: 'Roger Federer',
         country: 'Swiss',
+        grandslams: 20,
       },
       {
         name: 'Rafa Nadal',
         country: 'Spain',
+        grandslams: 22,
       },
       {
         name: 'Novak Djorkvic',
         country: 'Serbian',
+        grandslams: 23,
       },
       {
         name: 'ZhiZheng Zhang',
         country: 'China',
+        grandslams: 0,
       },
     ];
   }

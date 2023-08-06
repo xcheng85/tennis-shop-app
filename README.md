@@ -234,6 +234,16 @@ ng generate service players
 
 ```
 
+2. root inject service
+singleton
+3. component inject service
+scoped, and copies
+
+```shell
+# component for all the grandslam winners
+ng generate component grandslams
+```
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.

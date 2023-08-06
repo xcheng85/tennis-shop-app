@@ -7,6 +7,7 @@ import { PlayersService } from '../players.service';
   selector: 'app-player-list',
   templateUrl: './player-list.component.html',
   styleUrls: ['./player-list.component.css'],
+  providers: [PlayersService]
 })
 export class PlayerListComponent implements AfterViewInit, OnInit {
   currentStyles = {

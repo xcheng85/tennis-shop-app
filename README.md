@@ -155,8 +155,13 @@ json
 async
 keyvalue
 
+### custom pipe
+```
+ng generate pipe sort-by-country
+```
 
-
+interface: PipeTransform
+the transform stream in node.js
 
 ## Development server
 

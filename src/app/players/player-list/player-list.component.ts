@@ -26,6 +26,10 @@ export class PlayerListComponent implements AfterViewInit {
       name: 'Novak Djorkvic',
       country: 'Serbian',
     },
+    {
+      name: 'ZhiZheng Zhang',
+      country: 'China',
+    },
   ];
 
   grandslams = {

@@ -1,17 +1,23 @@
 <h3 [style]="currentStyles">Player List</h3>
 <ul>
-  <li *ngFor="let player of players; let i=index" (click)="selectedPlayer = player">
-    #{{i+1}}. {{player.name}}
+  <li
+    *ngFor="let player of players | sortPlayerByCountry; let i = index"
+    (click)="selectedPlayer = player"
+  >
+    #{{ i + 1 }}. {{ player.name }}
   </li>
 </ul>
 <ul>
   <li *ngFor="let slam of grandslams | keyvalue">
-    {{slam.key}} {{slam.value}} 
+    {{ slam.key }} {{ slam.value }}
   </li>
 </ul>
 <ul>
-  <li *ngFor="let player of players; let i=index" (click)="selectedPlayer = player">
-    {{player | json}}
+  <li
+    *ngFor="let player of players; let i = index"
+    (click)="selectedPlayer = player"
+  >
+    {{ player | json }}
   </li>
 </ul>
 <app-player-detail

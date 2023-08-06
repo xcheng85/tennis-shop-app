@@ -136,6 +136,26 @@ ngif + ng-template
 ngFor: index, even/odd, first/last
 For performance, angular object identity
 
+## Pipe
+manipulate at the html level
+
+interface for player domain/entity, special interface in ts
+
+```shell
+ng generate interface player
+```
+
+built-in:
+uppercase/lowercase
+percent
+currency
+slice
+date
+json
+async
+keyvalue
+
+
 
 
 ## Development server

@@ -1,5 +1,6 @@
 import { Component, AfterViewInit, ViewChild } from '@angular/core';
 import { PlayerDetailComponent } from '../player-detail/player-detail.component';
+import { Player } from '../player';
 
 @Component({
   selector: 'app-player-list',
@@ -11,8 +12,28 @@ export class PlayerListComponent implements AfterViewInit {
     color: 'blue',
     width: '88px',
   };
-  selectedPlayer = '';
-  players = ['Roger Federer', 'Rafa Nadal', 'Novak Djorkvic'];
+  selectedPlayer: Player | undefined;
+  players: Player[] = [
+    {
+      name: 'Roger Federer',
+      country: 'Swiss',
+    },
+    {
+      name: 'Rafa Nadal',
+      country: 'Spain',
+    },
+    {
+      name: 'Novak Djorkvic',
+      country: 'Serbian',
+    },
+  ];
+
+  grandslams = {
+    'Australia': 'Hard court',
+    'French': 'Clay court',
+    'Wimbleton': 'Grass court',
+    'US': 'Hard court'
+  }
 
   // property decorator
   @ViewChild(PlayerDetailComponent) playerDetail:

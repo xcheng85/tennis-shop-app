@@ -321,6 +321,12 @@ rxjs: js lib
 
 router and httpclient is coupled with observable
 
+### clean up observables
+
+subscribe == memory
+
+1. in the ngDestroy hook point
+2. use subject and takeUntil RxJS Operator to Manage Subscriptions Declaratively
 
 
 ## Development server

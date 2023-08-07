@@ -264,10 +264,14 @@ only direct children
 8. Override provider
 register different impl of the same service interface
 
-```
+```shell
 ng generate service grandslam-player
 ```
 
+9. MultiVersion of service provider
+```shell
+ng generate service grandslam-player-v1
+```
 
 ## Development server
 

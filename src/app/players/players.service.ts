@@ -1,9 +1,20 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 import { Player } from './player';
 
-// root injector will provide the instance of this service, singleton
+// transform from response to entity Player
+interface PlayerDTO {
+  firstname: string;
+  lastname: string;
+  country: string;
+  aus: number;
+  fra: number;
+  wmb: number;
+  us: number;
+}
 
+// root injector will provide the instance of this service, singleton
 @Injectable({
   providedIn: 'root',
 })
@@ -30,7 +41,7 @@ export class PlayersService {
       grandslams: 0,
     },
   ];
-  constructor() {}
+  constructor(private http: HttpClient) {}
   // to be replaced with server api
   // to be observables with of operator
   getPlayers(): Observable<Player[]> {

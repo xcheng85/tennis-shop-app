@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { switchMap, of, Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 import { Player } from './player';
 import { PlayersService } from './players.service';
 
@@ -7,8 +8,8 @@ import { PlayersService } from './players.service';
   providedIn: 'root',
 })
 export class GrandslamPlayerService extends PlayersService {
-  constructor() {
-    super();
+  constructor(private h: HttpClient) {
+    super(h);
   }
 
   override getPlayers(): Observable<Player[]> {

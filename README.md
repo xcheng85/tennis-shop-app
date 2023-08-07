@@ -330,6 +330,29 @@ subscribe == memory
 3. async pipe, in the html (players$ | async)!
 
 
+## HTTP Client
+rxjs observable stream
+
+browser fetch API: promise-based
+
+HTTP client: wrapper on top of fetch promised api with observables
+
+Another module HttpClientModule:
+1. HttpClient service: return observables
+
+
+DTO: transform from response to entity
+
+
+## Auth
+```shell
+ng generate module auth
+ng generate service auth
+# ot
+ng generate component auth -export
+```
+
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.

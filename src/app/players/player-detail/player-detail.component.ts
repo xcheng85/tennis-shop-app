@@ -9,6 +9,7 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import { Player } from '../player';
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector: 'app-player-detail',
@@ -20,6 +21,8 @@ import { Player } from '../player';
 export class PlayerDetailComponent implements OnChanges {
   @Input() player: Player | undefined;
   @Output() liked = new EventEmitter<string>();
+
+  constructor(public authService: AuthService) {}
 
   like() {
     this.liked.emit(this.player?.name);

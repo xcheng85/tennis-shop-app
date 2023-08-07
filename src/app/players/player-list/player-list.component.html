@@ -1,7 +1,10 @@
 <h3 [style]="currentStyles">Player List</h3>
 <ul>
   <li
-    *ngFor="let player of players | sortPlayerByCountry; let i = index"
+    *ngFor="
+      let player of (players$ | async)! | sortPlayerByCountry;
+      let i = index
+    "
     (click)="selectedPlayer = player"
   >
     <app-player-view [id]="i"></app-player-view>
@@ -15,7 +18,7 @@
 </ul>
 <ul>
   <li
-    *ngFor="let player of players; let i = index"
+    *ngFor="let player of (players$ | async)!; let i = index"
     (click)="selectedPlayer = player"
   >
     {{ player | json }}

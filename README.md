@@ -327,6 +327,7 @@ subscribe == memory
 
 1. in the ngDestroy hook point
 2. use subject and takeUntil RxJS Operator to Manage Subscriptions Declaratively
+3. async pipe, in the html (players$ | async)!
 
 
 ## Development server

@@ -1,5 +1,11 @@
-import { Component, AfterViewInit, ViewChild, OnInit, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs';
+import {
+  Component,
+  AfterViewInit,
+  ViewChild,
+  OnInit,
+  OnDestroy,
+} from '@angular/core';
+import { Subscription, Observable } from 'rxjs';
 import { PlayerDetailComponent } from '../player-detail/player-detail.component';
 import { Player } from '../player';
 import { PlayersService } from '../players.service';
@@ -16,7 +22,7 @@ export class PlayerListComponent implements AfterViewInit, OnInit, OnDestroy {
     width: '88px',
   };
   selectedPlayer: Player | undefined;
-  players: Player[] = [];
+  players$: Observable<Player[]> | undefined;
 
   grandslams = {
     Australia: 'Hard court',
@@ -39,9 +45,7 @@ export class PlayerListComponent implements AfterViewInit, OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.playersSub = this.playersService.getPlayers().subscribe((players) => {
-      this.players = players;
-    });
+    this.players$ = this.playersService.getPlayers();
   }
 
   ngAfterViewInit(): void {
@@ -51,6 +55,7 @@ export class PlayerListComponent implements AfterViewInit, OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.playersSub?.unsubscribe();
+    // not needed
+    // this.playersSub?.unsubscribe();
   }
 }

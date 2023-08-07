@@ -264,6 +264,10 @@ only direct children
 8. Override provider
 register different impl of the same service interface
 
+```
+ng generate service grandslam-player
+```
+
 
 ## Development server
 

@@ -368,6 +368,14 @@ injection token: HTTP_INTERCEPTORS, 2nd one besides the appConfig
 
 impl interface: HttpInterceptor
 
+## Routing
+Angular router: handle changes on clientside, SPA
+
+base path in the index.html
+browser support: evergreen , pushstate
+
+app.routing.module.ts
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.

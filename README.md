@@ -352,6 +352,21 @@ ng generate service auth
 ng generate component auth -export
 ```
 
+beartoken in Authorization header
+
+interceptors: angular service 
+like middleware
+1. custom header
+2. loading indicator
+3. logging 
+```shell
+ng generate interceptor auth
+```
+register with app module
+
+injection token: HTTP_INTERCEPTORS, 2nd one besides the appConfig
+
+impl interface: HttpInterceptor
 
 ## Development server
 

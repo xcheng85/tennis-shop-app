@@ -22,6 +22,8 @@ export class GrandslamsComponent implements OnInit {
   constructor(private playersService: PlayersService) {}
 
   ngOnInit(): void {
-    this.grandslams = this.playersService.getPlayers();
+    this.playersService.getPlayers().subscribe((grandslams) => {
+      this.grandslams = grandslams;
+    });
   }
 }

@@ -14,9 +14,12 @@ export class PlayerViewComponent implements OnInit {
   constructor(private playerViewService: PlayerViewService) {}
 
   ngOnInit(): void {
-    const player = this.playerViewService.getPlayer(this.id);
-    if (player) {
-      this.name = player.name;
-    }
+    const player = this.playerViewService
+      .getPlayer(this.id)
+      .subscribe((player) => {
+        if (player) {
+          this.name = player.name;
+        }
+      });
   }
 }

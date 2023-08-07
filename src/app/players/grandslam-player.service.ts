@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { switchMap, of, Observable } from 'rxjs';
 import { Player } from './player';
 import { PlayersService } from './players.service';
 
@@ -10,7 +11,12 @@ export class GrandslamPlayerService extends PlayersService {
     super();
   }
 
-  override getPlayers(): Player[] {
-    return super.getPlayers().filter((p) => p.grandslams > 0);
+  override getPlayers(): Observable<Player[]> {
+    return super.getPlayers().pipe(
+      switchMap((players) => {
+        const playerWithGrandslams = players.filter((p) => p.grandslams > 0);
+        return of(playerWithGrandslams);
+      })
+    );
   }
 }

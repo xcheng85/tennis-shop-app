@@ -276,6 +276,53 @@ ng generate service grandslam-player-v1
 10. AppConfig and DI
 InjectionToken: like key in the ioc
 
+## Observables
+async: 
+1. backend api
+2. reading from file system
+
+callback hell -> promise (chain of then)
+
+promise limitations:
+1. cannot cancel
+2. immediately execute
+3. one-time
+4. respond with one value
+
+
+observable
+
+next(): emit streams of events
+
+observable pattern
+
+rxjs operators: works with observables(event)
+1. transform
+2. filter
+3. combine events
+
+create observables
+1. fromEvents: html events
+2. of
+3. from
+
+transform observables
+1. pipe: combine multiple operatoers
+2. map:
+3. filter
+4. tap: do nothing operator
+
+high-order observables
+1. switchMap: read from source observable and emit new observable, like a switch. cancels current inner observable and switch to a new one.
+2. mergeMap: merges all inner observable into 1. 
+
+reactive: consume. digest and transform async data streams
+rxjs: js lib
+
+router and httpclient is coupled with observable
+
+
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.

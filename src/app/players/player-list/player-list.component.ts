@@ -7,7 +7,7 @@ import { PlayersService } from '../players.service';
   selector: 'app-player-list',
   templateUrl: './player-list.component.html',
   styleUrls: ['./player-list.component.css'],
-  providers: [PlayersService]
+  providers: [PlayersService],
 })
 export class PlayerListComponent implements AfterViewInit, OnInit {
   currentStyles = {
@@ -36,7 +36,9 @@ export class PlayerListComponent implements AfterViewInit, OnInit {
   }
 
   ngOnInit(): void {
-    this.players = this.playersService.getPlayers();
+    this.playersService.getPlayers().subscribe((players) => {
+      this.players = players;
+    });
   }
 
   ngAfterViewInit(): void {

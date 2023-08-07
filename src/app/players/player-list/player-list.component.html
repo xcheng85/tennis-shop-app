@@ -4,7 +4,8 @@
     *ngFor="let player of players | sortPlayerByCountry; let i = index"
     (click)="selectedPlayer = player"
   >
-    #{{ i + 1 }}. {{ player.name }}
+    <app-player-view [id]="i"></app-player-view>
+    <!-- #{{ i + 1 }}. {{ player.name }} -->
   </li>
 </ul>
 <ul>
@@ -34,6 +35,5 @@
 <ng-template appPlayerHost></ng-template>
 
 <app-grandslams></app-grandslams>
-
 
 <!-- <span>{{player.name}}</span> -->

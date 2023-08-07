@@ -239,10 +239,31 @@ singleton
 3. component inject service
 scoped, and copies
 
+4. if root inject and component inject ths same service, component will create a new copy with scope limiting to all its children and itself
+
 ```shell
 # component for all the grandslam winners
 ng generate component grandslams
 ```
+
+5. component injector service for local cache
+```shell
+ng generate component player-view
+ng generate service player-view
+```
+
+6. restrict service dependency accss (down)
+only direct children
+  providers: [PlayersService] -->   viewProviders: [PlayersService]
+
+7. di decorator for params
+@Host
+@Optional
+@Self
+
+8. Override provider
+register different impl of the same service interface
+
 
 ## Development server
 

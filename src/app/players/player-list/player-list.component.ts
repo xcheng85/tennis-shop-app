@@ -1,4 +1,5 @@
-import { Component, AfterViewInit, ViewChild, OnInit } from '@angular/core';
+import { Component, AfterViewInit, ViewChild, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { PlayerDetailComponent } from '../player-detail/player-detail.component';
 import { Player } from '../player';
 import { PlayersService } from '../players.service';
@@ -9,7 +10,7 @@ import { PlayersService } from '../players.service';
   styleUrls: ['./player-list.component.css'],
   providers: [PlayersService],
 })
-export class PlayerListComponent implements AfterViewInit, OnInit {
+export class PlayerListComponent implements AfterViewInit, OnInit, OnDestroy {
   currentStyles = {
     color: 'blue',
     width: '88px',
@@ -29,6 +30,8 @@ export class PlayerListComponent implements AfterViewInit, OnInit {
     | PlayerDetailComponent
     | undefined;
 
+  private playersSub: Subscription | undefined;
+
   constructor(private playersService: PlayersService) {}
 
   onPlayerLiked(name: string) {
@@ -36,7 +39,7 @@ export class PlayerListComponent implements AfterViewInit, OnInit {
   }
 
   ngOnInit(): void {
-    this.playersService.getPlayers().subscribe((players) => {
+    this.playersSub = this.playersService.getPlayers().subscribe((players) => {
       this.players = players;
     });
   }
@@ -45,5 +48,9 @@ export class PlayerListComponent implements AfterViewInit, OnInit {
     if (this.playerDetail) {
       console.info(this.playerDetail.Name);
     }
+  }
+
+  ngOnDestroy(): void {
+    this.playersSub?.unsubscribe();
   }
 }

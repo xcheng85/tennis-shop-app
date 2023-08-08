@@ -8,6 +8,13 @@ const routes: Routes = [
   {
     path: 'players',
     component: PlayerListComponent,
+    // children: [
+    //   // better approach to solve list and detail 
+    //   {
+    //     path: ':id',
+    //     component: PlayerDetailComponent,
+    //   },
+    // ],
   },
   {
     path: 'players/:id',

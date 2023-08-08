@@ -405,7 +405,17 @@ routerLinkActive directive: (sytle directive)
 master-detail 
 TO the detail component, injectable ActivatedRoute service: get current active route
 
+### routing with qs params
+ActivatedRoute.queryParamMap: track qs
 
+
+### master detail with childRouter
+value ? avoid detail component destroy and recreate.
+reuse the same detail component for different data in the data list.
+
+router-outlet
+
+### angular guard to route access
 
 ## Development server
 

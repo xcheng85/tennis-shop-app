@@ -376,6 +376,17 @@ browser support: evergreen , pushstate
 
 app.routing.module.ts
 
+### Routing for DDD
+
+routing in a domain module: player
+
+ddd for routing: create routing module in the domin: players
+
+forRoot: main app module
+
+forChild: domain module
+
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.

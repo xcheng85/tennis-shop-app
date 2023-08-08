@@ -10,14 +10,15 @@ import { CopyrightDirective } from './copyright.directive';
 import { AccessControlDirective } from './access-control.directive';
 import { AuthInterceptor } from './auth.interceptor';
 
+
 @NgModule({
   declarations: [AppComponent, CopyrightDirective, AccessControlDirective],
   imports: [
     BrowserModule,
     HttpClientModule,
-    PlayersModule,
+    PlayersModule, // feature routing module prior to the main app routing module
     AuthModule,
-    AppRoutingModule,
+    AppRoutingModule, // main app routing module
   ],
   providers: [
     {

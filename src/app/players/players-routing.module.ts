@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PlayerListComponent } from './player-list/player-list.component';
 import { PlayerDetailComponent } from './player-detail/player-detail.component';
+import { likePlayerGuard } from './like.guard';
 
 // order for less specific
 const routes: Routes = [
@@ -19,6 +20,7 @@ const routes: Routes = [
   {
     path: 'players/:id',
     component: PlayerDetailComponent,
+    canDeactivate: [likePlayerGuard]
   },
   {
     path: '',

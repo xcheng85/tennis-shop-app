@@ -5,6 +5,16 @@
       let player of (players$ | async)! | sortPlayerByCountry;
       let i = index
     "
+  >
+    <a [routerLink]="['/players', player.id]">{{player.name}}</a>
+  </li>
+</ul>
+<ul>
+  <li
+    *ngFor="
+      let player of (players$ | async)! | sortPlayerByCountry;
+      let i = index
+    "
     (click)="selectedPlayer = player"
   >
     <app-player-view [id]="i"></app-player-view>

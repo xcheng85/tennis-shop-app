@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable, of, filter, switchMap, from } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Player } from './player';
 
@@ -21,21 +21,25 @@ interface PlayerDTO {
 export class PlayersService {
   private players: Player[] = [
     {
+      id: '0',
       name: 'Roger Federer',
       country: 'Swiss',
       grandslams: 20,
     },
     {
+      id: '1',
       name: 'Rafa Nadal',
       country: 'Spain',
       grandslams: 22,
     },
     {
+      id: '2',
       name: 'Novak Djorkvic',
       country: 'Serbian',
       grandslams: 23,
     },
     {
+      id: '3',
       name: 'ZhiZheng Zhang',
       country: 'China',
       grandslams: 0,
@@ -46,5 +50,9 @@ export class PlayersService {
   // to be observables with of operator
   getPlayers(): Observable<Player[]> {
     return of(this.players);
+  }
+
+  getPlayer(id: string): Observable<Player> {
+    return from(this.players).pipe(filter((p) => p.id === id));
   }
 }

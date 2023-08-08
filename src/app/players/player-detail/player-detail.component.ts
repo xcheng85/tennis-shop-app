@@ -5,11 +5,16 @@ import {
   EventEmitter,
   ViewEncapsulation,
   ChangeDetectionStrategy,
+  OnInit,
   OnChanges,
   SimpleChanges,
 } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import {Observable} from 'rxjs';
 import { Player } from '../player';
 import { AuthService } from '../../auth/auth.service';
+import { switchMap } from 'rxjs';
+import { PlayersService } from '../players.service';
 
 @Component({
   selector: 'app-player-detail',
@@ -18,11 +23,15 @@ import { AuthService } from '../../auth/auth.service';
   encapsulation: ViewEncapsulation.Emulated,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PlayerDetailComponent implements OnChanges {
+export class PlayerDetailComponent implements OnInit, OnChanges {
   @Input() player: Player | undefined;
   @Output() liked = new EventEmitter<string>();
-
-  constructor(public authService: AuthService) {}
+  // player$: Observable<Player> | undefined;
+  constructor(
+    private playerService: PlayersService,
+    public authService: AuthService,
+    private route: ActivatedRoute
+  ) {}
 
   like() {
     this.liked.emit(this.player?.name);
@@ -31,6 +40,17 @@ export class PlayerDetailComponent implements OnChanges {
   get Name(): string | undefined {
     console.info(`player's name: ${this.player?.name}`);
     return this.player?.name;
+  }
+
+  ngOnInit(): void {
+    // observable for all the route params
+    // paramMap: kv pair for all the routing params
+    this.route.paramMap.pipe(
+      switchMap((params) => {
+        // fetch the routing param: id
+        return this.playerService.getPlayer(params.get('id') as string);
+      })
+    ).subscribe(p => this.player = p);
   }
 
   ngOnChanges(changes: SimpleChanges): void {}

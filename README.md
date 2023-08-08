@@ -41,7 +41,7 @@ Angular Data immutability
 17. partial, record, union
 
 ## Angular Module
-ddd
+dddayers
 main module: AppModule
 main module and feature modules
 
@@ -87,10 +87,7 @@ stadalone: prototying and demo
 
 ## HTML
 1. unordered list: ul li
-
-
-### Property Binding: class and style
-class: css
+ayers
 
 ### Event Binding
 DOM events to the method in component class
@@ -403,6 +400,10 @@ Router service injected
 
 
 routerLinkActive directive: (sytle directive)
+
+### routing with params
+master-detail 
+TO the detail component, injectable ActivatedRoute service: get current active route
 
 
 

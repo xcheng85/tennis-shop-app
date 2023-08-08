@@ -1,12 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PlayerListComponent } from './player-list/player-list.component';
+import { PlayerDetailComponent } from './player-detail/player-detail.component';
 
 // order for less specific
 const routes: Routes = [
   {
     path: 'players',
     component: PlayerListComponent,
+  },
+  {
+    path: 'players/:id',
+    component: PlayerDetailComponent,
   },
   {
     path: '',

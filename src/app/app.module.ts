@@ -9,10 +9,11 @@ import { AuthModule } from './auth/auth.module';
 import { CopyrightDirective } from './copyright.directive';
 import { AccessControlDirective } from './access-control.directive';
 import { AuthInterceptor } from './auth.interceptor';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 @NgModule({
-  declarations: [AppComponent, CopyrightDirective, AccessControlDirective],
+  declarations: [AppComponent, CopyrightDirective, AccessControlDirective, PageNotFoundComponent],
   imports: [
     BrowserModule,
     HttpClientModule,

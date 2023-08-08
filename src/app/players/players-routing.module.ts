@@ -3,9 +3,15 @@ import { RouterModule, Routes } from '@angular/router';
 import { PlayerListComponent } from './player-list/player-list.component';
 
 const routes: Routes = [
-    {
-        path: 'players', component: PlayerListComponent
-    }
+  {
+    path: 'players',
+    component: PlayerListComponent,
+  },
+  {
+    path: '',
+    redirectTo: '/players',
+    pathMatch: 'full',
+  },
 ];
 
 // for child: routes in a feature module

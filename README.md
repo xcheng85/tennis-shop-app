@@ -386,6 +386,11 @@ forRoot: main app module
 
 forChild: domain module
 
+```shell
+ng generate component page-not-found
+```
+
+set default path for the route
 
 ## Development server
 

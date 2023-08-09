@@ -10,7 +10,7 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import {Observable} from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { Player } from '../player';
 import { AuthService } from '../../auth/auth.service';
 import { switchMap } from 'rxjs';
@@ -26,7 +26,7 @@ import { PlayersService } from '../players.service';
 export class PlayerDetailComponent implements OnInit, OnChanges {
   @Input() player: Player | undefined;
   @Output() liked = new EventEmitter<string>();
-  // player$: Observable<Player> | undefined;
+  player$: Observable<Player> | undefined;
   constructor(
     private playerService: PlayersService,
     public authService: AuthService,
@@ -43,14 +43,22 @@ export class PlayerDetailComponent implements OnInit, OnChanges {
   }
 
   ngOnInit(): void {
-    // observable for all the route params
-    // paramMap: kv pair for all the routing params
-    this.route.paramMap.pipe(
-      switchMap((params) => {
-        // fetch the routing param: id
-        return this.playerService.getPlayer(params.get('id') as string);
-      })
-    ).subscribe(p => this.player = p);
+    // // observable for all the route params
+    // // paramMap: kv pair for all the routing params
+    // this.route.paramMap
+    //   .pipe(
+    //     switchMap((params) => {
+    //       // fetch the routing param: id
+    //       return this.playerService.getPlayer(params.get('id') as string);
+    //     })
+    //   )
+    //   .subscribe((p) => (this.player = p));
+
+    // route prefetching
+    this.player$ = this.route.data.pipe(
+      // key: player must match the players-routing.module.ts
+      switchMap(data => of(data['player']))
+    );
   }
 
   ngOnChanges(changes: SimpleChanges): void {}

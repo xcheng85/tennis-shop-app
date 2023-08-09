@@ -1,5 +1,11 @@
-<p>Player Details</p>
-<h3>{{ player?.name }}</h3>
+<!-- <p>Player Details</p>
+<h3>{{ player?.name }}</h3> -->
 
-<button *ngIf="authService.isLoggedIn" (click)="like()">Like the player</button>
-<span>{{Name}}</span>
+<div *ngIf="player$ | async as player">
+  <h2>Product Details</h2>
+  <h3>{{ player.name }}</h3>
+  <button *ngIf="authService.isLoggedIn" (click)="like()">
+    Like the player
+  </button>
+  <span>{{ Name }}</span>
+</div>

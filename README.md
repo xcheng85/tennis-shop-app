@@ -419,3 +419,11 @@ router-outlet
 
 ### angular guard to guard navigating away
 
+### prefetch 
+
+resolver
+
+```shell
+xiao@xiao-Alienware-m15-Ryzen-Ed-R5:~/tennis-shop-app/src/app/players$ touch player-detail.resolver.ts
+```
+

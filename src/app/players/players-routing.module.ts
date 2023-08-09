@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { PlayerListComponent } from './player-list/player-list.component';
 import { PlayerDetailComponent } from './player-detail/player-detail.component';
 import { likePlayerGuard } from './like.guard';
+import { playerDetailResolver } from './player-detail.resolver';
 
 // order for less specific
 const routes: Routes = [
@@ -10,7 +11,7 @@ const routes: Routes = [
     path: 'players',
     component: PlayerListComponent,
     // children: [
-    //   // better approach to solve list and detail 
+    //   // better approach to solve list and detail
     //   {
     //     path: ':id',
     //     component: PlayerDetailComponent,
@@ -20,7 +21,11 @@ const routes: Routes = [
   {
     path: 'players/:id',
     component: PlayerDetailComponent,
-    canDeactivate: [likePlayerGuard]
+    resolve: {
+        // name of the key: player is important (this part very similar to react router)
+      player: playerDetailResolver,
+    },
+    canDeactivate: [likePlayerGuard],
   },
   {
     path: '',

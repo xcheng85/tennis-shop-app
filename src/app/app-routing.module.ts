@@ -10,6 +10,12 @@ const routes: Routes = [
     component: PlayerListComponent,
   },
   {
+    path: 'support',
+    loadChildren: () =>
+      import('./support/support.module').then((m) => m.SupportModule),
+      canMatch: [authGuard]
+  },
+  {
     path: '**', // wild card route as the last entry
     component: PageNotFoundComponent,
     canActivate: [authGuard], // redirect if not logged in

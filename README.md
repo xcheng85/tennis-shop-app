@@ -427,3 +427,17 @@ resolver
 xiao@xiao-Alienware-m15-Ryzen-Ed-R5:~/tennis-shop-app/src/app/players$ touch player-detail.resolver.ts
 ```
 
+## lazy loading module
+```shell
+ng generate module support
+ng generate component support-info
+```
+
+lazy loaded module is in separate bundle, not in the main bundle
+check network tab
+
+lazy loaded module have separator injector, which will cause two angular service instance. (prefer stateless service)
+
+### access control for lazy loaded module
+CanLoadFn deprecated.
+CanMatch instead

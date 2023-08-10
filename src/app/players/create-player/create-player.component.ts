@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { PlayersService } from '../players.service';
 import { Player } from '../player';
@@ -9,7 +9,7 @@ import { titleRangeValidator } from '../title-range-validator.directive';
   templateUrl: './create-player.component.html',
   styleUrls: ['./create-player.component.css'],
 })
-export class CreatePlayerComponent {
+export class CreatePlayerComponent implements OnInit {
   @Output() playerAdded = new EventEmitter<Player>();
   playerForm = new FormGroup({
     name: new FormControl('', {
@@ -22,11 +22,21 @@ export class CreatePlayerComponent {
     }),
     grandslams: new FormControl<number>(0, {
       nonNullable: true,
-      validators: [Validators.required, titleRangeValidator()]
+      validators: [Validators.required, titleRangeValidator()],
     }),
   });
+  showTitleRangeHint = false;
 
   constructor(private playersService: PlayersService) {}
+
+  ngOnInit(): void {
+    // watch for the valueChanges observable and react
+    this.grandslams.valueChanges.subscribe((titleNum) => {
+      if (titleNum) {
+        this.showTitleRangeHint = titleNum >= 0 && titleNum <= 50;
+      }
+    });
+  }
 
   get name() {
     return this.playerForm.controls.name;

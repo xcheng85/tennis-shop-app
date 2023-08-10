@@ -16,6 +16,9 @@
   <div>
     <label for="grandslams">Grand Slams</label>
     <input id="grandslams" formControlName="grandslams" required />
+    <span *ngIf="showTitleRangeHint">
+      Grand Slam titles should be between 0 and 50
+    </span>
   </div>
   <div>
     <button type="submit" [disabled]="!playerForm.valid">Create</button>

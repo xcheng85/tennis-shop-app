@@ -2,6 +2,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { PlayersService } from '../players.service';
 import { Player } from '../player';
+import { titleRangeValidator } from '../title-range-validator.directive';
 
 @Component({
   selector: 'app-create-player',
@@ -21,7 +22,7 @@ export class CreatePlayerComponent {
     }),
     grandslams: new FormControl<number>(0, {
       nonNullable: true,
-      validators: [Validators.required, Validators.min(0)]
+      validators: [Validators.required, titleRangeValidator()]
     }),
   });
 

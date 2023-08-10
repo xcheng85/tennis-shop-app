@@ -490,3 +490,11 @@ ng generate component create-player-v2
 much like class-validator 
 
 Validators return static function
+
+
+### custom validator through directives
+
+```shell
+ng generate directive titleRangeValidator
+
+```

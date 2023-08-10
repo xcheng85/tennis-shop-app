@@ -525,3 +525,30 @@ Would you like to proceed? Yes
 
 # Include and enable animation
 ```
+
+### usage
+each ui contorl --> import corresponding modules
+every module is in dedicated namespace
+
+apply specific directive to the html element mat-***
+the mat-*** directive access the html and modify it.
+
+
+### themes
+
+in the angular.json
+
+thems and color palette
+
+### Button
+### Form Controls & directives
+input: 
+
+if a feature module: player use it, import in the feature module
+
+matInput
+mat-form-field
+mat-error
+mat-hint
+
+mat-raised-button

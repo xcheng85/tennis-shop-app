@@ -1,26 +1,54 @@
 <form [formGroup]="playerForm" (ngSubmit)="createPlayer()">
   <div>
-    <label for="name">Name</label>
+    <mat-form-field>
+      <input
+        id="name"
+        formControlName="name"
+        placeholder="Name"
+        required
+        matInput
+      />
+      <mat-error>The name is not valid</mat-error>
+    </mat-form-field>
+    <!-- <label for="name">Name</label>
     <input id="name" formControlName="name" required />
-    <!-- touched is critical -->
-    <span *ngIf="name.touched && name.invalid"> The name is not valid </span>
+    <span *ngIf="name.touched && name.invalid"> The name is not valid </span> -->
   </div>
   <div>
-    <label for="country">Country</label>
+    <mat-form-field>
+      <input
+        id="country"
+        formControlName="country"
+        placeholder="Country"
+        required
+        matInput
+      />
+      <mat-error>The country is not valid</mat-error>
+    </mat-form-field>
+    <!-- <label for="country">Country</label>
     <input id="country" formControlName="country" required />
-    <!-- touched is critical -->
     <span *ngIf="country.touched && country.invalid">
       The country is not valid
-    </span>
+    </span> -->
   </div>
   <div>
-    <label for="grandslams">Grand Slams</label>
+    <mat-form-field>
+      <input
+        id="grandslams"
+        formControlName="grandslams"
+        placeholder="Grand Slams"
+        required
+        matInput
+      />
+      <mat-hint>Grand Slam titles should be between 0 and 50</mat-hint>
+    </mat-form-field>
+    <!-- <label for="grandslams">Grand Slams</label>
     <input id="grandslams" formControlName="grandslams" required />
     <span *ngIf="showTitleRangeHint">
       Grand Slam titles should be between 0 and 50
-    </span>
+    </span> -->
   </div>
   <div>
-    <button type="submit" [disabled]="!playerForm.valid">Create</button>
+    <button mat-raised-button color="primary" type="submit" [disabled]="!playerForm.valid">Create</button>
   </div>
 </form>

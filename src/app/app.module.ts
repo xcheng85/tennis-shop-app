@@ -10,6 +10,7 @@ import { CopyrightDirective } from './copyright.directive';
 import { AccessControlDirective } from './access-control.directive';
 import { AuthInterceptor } from './auth.interceptor';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     HttpClientModule,
     PlayersModule, // feature routing module prior to the main app routing module
     AuthModule,
-    AppRoutingModule, // main app routing module
+    AppRoutingModule,
+    BrowserAnimationsModule, // main app routing module
   ],
   providers: [
     {

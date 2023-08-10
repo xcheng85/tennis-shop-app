@@ -500,3 +500,28 @@ ng generate directive titleRangeValidator
 ```
 
 ### watch and react on form control state changes
+
+
+## Angular Material
+
+others:
+1. Bootstrap
+2. Tailwind CSS: react
+
+### Installation
+```shell
+ng add @angular/material
+
+ℹ Using package manager: npm
+✔ Found compatible package version: @angular/material@16.2.0.
+✔ Package information loaded.
+
+The package @angular/material@16.2.0 will be installed and executed.
+Would you like to proceed? Yes
+
+# select theme
+
+# Angular Material typography stles
+
+# Include and enable animation
+```

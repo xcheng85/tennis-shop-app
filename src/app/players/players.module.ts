@@ -9,6 +9,7 @@ import { GrandslamsComponent } from './grandslams/grandslams.component';
 import { PlayerViewComponent } from './player-view/player-view.component';
 import { PlayersRoutingModule } from './players-routing.module';
 import { CreatePlayerComponent } from './create-player/create-player.component';
+import { CreatePlayerV2Component } from './create-player-v2/create-player-v2.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { CreatePlayerComponent } from './create-player/create-player.component';
     GrandslamsComponent,
     PlayerViewComponent,
     CreatePlayerComponent,
+    CreatePlayerV2Component,
   ],
   imports: [
     CommonModule,

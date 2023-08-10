@@ -1,0 +1,18 @@
+<form [formGroup]="playerForm" (ngSubmit)="createPlayer()">
+    <div>
+      <label for="name">Name</label>
+      <input id="name" formControlName="name" required />
+    </div>
+    <div>
+      <label for="country">Country</label>
+      <input id="country" formControlName="country" required />
+    </div>
+    <div>
+      <label for="grandslams">Grand Slams</label>
+      <input id="grandslams" formControlName="grandslams" required />
+    </div>
+    <div>
+      <button type="submit" [disabled]="!playerForm.valid">Create</button>
+    </div>
+  </form>
+  

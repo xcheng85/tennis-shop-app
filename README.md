@@ -468,7 +468,7 @@ form: form, input, button
     ReactiveFormsModule: reactive 
 
 ```shell
-
+ng generate component create-player
 ```
 
 directive: 
@@ -481,3 +481,7 @@ hiearachical formgroups
 validators:
 1. required
 
+### use angular service: FormBuilder to create form
+```shell
+ng generate component create-player-v2
+```

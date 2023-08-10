@@ -55,4 +55,20 @@ export class PlayersService {
   getPlayer(id: string): Observable<Player> {
     return from(this.players).pipe(filter((p) => p.id === id));
   }
+
+  // to be integrated with web service
+  addPlayer(
+    name: string,
+    country: string,
+    grandslams: number
+  ): Observable<Player> {
+    const player: Player = {
+      id: `${this.players.length}`,
+      name,
+      country,
+      grandslams,
+    };
+    this.players.push(player);
+    return of(player);
+  }
 }

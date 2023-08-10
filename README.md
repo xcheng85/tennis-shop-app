@@ -441,3 +441,43 @@ lazy loaded module have separator injector, which will cause two angular service
 ### access control for lazy loaded module
 CanLoadFn deprecated.
 CanMatch instead
+
+
+## Form
+use cases: 
+1. login
+2. payment
+3. book
+4. advanced search
+
+form data --> local storage 
+form data --> rest api
+
+validation, errors
+
+angular forms:
+1. template-driven
+2. reactive forms
+
+form: form, input, button
+
+
+### use reactive form to create player
+
+    FormsModule: temlate-driver
+    ReactiveFormsModule: reactive 
+
+```shell
+
+```
+
+directive: 
+formGroup: connection FormGroup instance to a form html element
+formControlName directive: connect FormControl to a input element
+
+
+hiearachical formgroups
+
+validators:
+1. required
+

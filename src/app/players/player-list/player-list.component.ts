@@ -58,4 +58,9 @@ export class PlayerListComponent implements AfterViewInit, OnInit, OnDestroy {
     // not needed
     // this.playersSub?.unsubscribe();
   }
+
+  onAdd(player: Player) {
+    // re-fetch
+    this.players$ = this.playersService.getPlayers();
+  }
 }

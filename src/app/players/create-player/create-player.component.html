@@ -1,0 +1,33 @@
+<form [formGroup]="playerForm" (ngSubmit)="createPlayer()">
+  <div>
+    <label for="name">Name</label>
+    <input id="name" formControlName="name" required />
+  </div>
+  <div>
+    <label for="country">Country</label>
+    <input id="country" formControlName="country" required />
+  </div>
+  <div>
+    <label for="grandslams">Grand Slams</label>
+    <input id="grandslams" formControlName="grandslams" required />
+  </div>
+  <div>
+    <button type="submit" [disabled]="!playerForm.valid">Create</button>
+  </div>
+  <!-- <div>
+    <label for="price">Price</label>
+    <input id="price" formControlName="price" required />
+    <span *ngIf="price.touched && price.hasError('required')">
+      The price is required
+    </span>
+    <span *ngIf="price.touched && price.hasError('outOfRange')">
+      The price is out of range
+    </span>
+    <span *ngIf="showPriceRangeHint">
+      Price should be between 1 and 10000
+    </span>
+  </div>
+  <div>
+    <button type="submit" [disabled]="!productForm.valid">Create</button>
+  </div> -->
+</form>

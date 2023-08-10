@@ -485,3 +485,8 @@ validators:
 ```shell
 ng generate component create-player-v2
 ```
+
+### form validation rules
+much like class-validator 
+
+Validators return static function

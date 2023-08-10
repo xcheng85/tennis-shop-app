@@ -2,10 +2,16 @@
   <div>
     <label for="name">Name</label>
     <input id="name" formControlName="name" required />
+    <!-- touched is critical -->
+    <span *ngIf="name.touched && name.invalid"> The name is not valid </span>
   </div>
   <div>
     <label for="country">Country</label>
     <input id="country" formControlName="country" required />
+    <!-- touched is critical -->
+    <span *ngIf="country.touched && country.invalid">
+      The country is not valid
+    </span>
   </div>
   <div>
     <label for="grandslams">Grand Slams</label>

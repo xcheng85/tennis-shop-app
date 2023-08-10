@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { PlayersService } from '../players.service';
 import { Player } from '../player';
 
@@ -13,12 +13,15 @@ export class CreatePlayerComponent {
   playerForm = new FormGroup({
     name: new FormControl('', {
       nonNullable: true,
+      validators: Validators.required,
     }),
     country: new FormControl('', {
       nonNullable: true,
+      validators: Validators.required,
     }),
     grandslams: new FormControl<number>(0, {
       nonNullable: true,
+      validators: [Validators.required, Validators.min(0)]
     }),
   });
 

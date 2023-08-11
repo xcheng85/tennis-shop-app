@@ -552,3 +552,160 @@ mat-error
 mat-hint
 
 mat-raised-button
+
+
+## Ngrx
+
+### store
+Selectors are pure functions used to select, derive and compose pieces of state.
+
+store state: an observable of state and an observer of actions.
+
+subscribe
+
+observable: stream
+observer
+
+BehaviorSubject: implement the store
+observer of actions and save the last value and then emit observables. 
+
+dispatcher, reducer and state all based on BehaviorSubject
+
+
+### Reducers
+
+registered in the store
+
+operator on slice of store data
+
+always return new state: prevState, action (contains payload) -> new State
+
+without side effects
+
+handle each state transition synchronously
+
+The spread syntax copies the properties from the current state into the object, creating a new reference
+
+Note: The spread operator only does shallow copying and does not handle deeply nested objects. You need to copy each level in the object to ensure immutability. There are libraries that handle deep copying including lodash and immer.
+
+reducer creators: new to the ngrx after version 7
+
+### Action
+
+action creators: reuse for all the actions 
+action creator is new to replace the class-based action creators
+```typescript
+
+import { createAction, props } from '@ngrx/store';
+// login is a func
+// The category of the action is [Login page]
+export const login = createAction(
+  '[Login Page] Login',
+  props<{ username: string; password: string }>()
+);
+
+store.dispatch(login({ username: username, password: password }));
+``````
+Divide - categorize actions based on the event source.
+
+Event-Driven - capture events not commands as you are separating the description of an event and the handling of that event.
+
+### Installation
+store:
+NgRx Store also provides APIs for creating memoized selector functions that optimize retrieving data from your state.
+NgRx Effects+Store, network requests or web sockets, business logic
+NgRx provides serializability, local storage
+
+Store Devtools
+
+NgRx also provides test resources such as provideMockStore and provideMockActions for isolated tests and an overall better test experience.
+
+```shell
+ng add @ngrx/store@latest
+ng add @ngrx/effects@latest
+ng add @ngrx/store-devtools@latest
+
+
+```
+
+### Selector: 
+
+read model for your application state. 
+
+CQRS architectural pattern, NgRx separates the read model (selectors) from the write model (reducers).
+
+
+createSelector: function programming. chain of functions
+
+Using selectors for multiple pieces of state
+
+createFeatureSelector: for slice of state
+
+Memoized Selectors
+
+// flush memory cache
+selectTotal.release(); // memoized value of selectTotal is now null
+
+### combining NgRx selectors and RxJS operators 
+
+### logging all actions using Meta-reducers
+middleware
+re-process actions before normal reducers are invoked.
+right to left order:  StoreModule.forRoot(reducers, { metaReducers })
+
+
+### feature store registration. ddd 
+feature creator
+Feature registration in your domain module
+
+### action groups
+ createActionGroup: conveniment to group actions
+
+### Runtime checks
+help in the dev experience
+
+### effects
+effects interact with external deps
+1. component: dumb. move service out of the component
+2. Effects are long-running services that listen to an observable of every action dispatched from the Store.
+3. filter the action
+4. perform tasks and dispatch new action. (switchmap)
+
+Effects are injectable service classes
+
+injectable Actions service: why? effects need to dispatch new actions
+
+filter: ofType operator
+
+Effects are subscribed to the Store observable.
+
+Services are injected into effects to interact with external APIs and handle streams.
+
+### class based effects
+@Injectable()
+export class MoviesEffects 
+
+### function based effects
+
+new: functional effects
+
+### register effects
+After you've written class-based or functional effects, you must register them so the effects start running
+
+### Registering Feature Effect for DDD
+
+### Using Other Observable Sources for Effects (other than actions from ngrx store)
+
+track click events and send that data to our monitoring server.
+
+
+### architecture
+core module: all the ngrx stuff, shared service, effects.
+
+
+```shell
+ng generate module core
+
+```
+
+### 

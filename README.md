@@ -663,13 +663,7 @@ Feature registration in your domain module
 help in the dev experience
 
 ### effects
-effects interact with external deps
-1. component: dumb. move service out of the component
-2. Effects are long-running services that listen to an observable of every action dispatched from the Store.
-3. filter the action
-4. perform tasks and dispatch new action. (switchmap)
-
-Effects are injectable service classes
+effects interact with external depsracquetFeatureKey
 
 injectable Actions service: why? effects need to dispatch new actions
 
@@ -716,4 +710,6 @@ ng generate service racquets
 # child routes for domain module: racquets
 touch racquets-routing.module.ts
 # add meta-reducer for logging ngrx events
+
+# use createFeature to simplify
 ```

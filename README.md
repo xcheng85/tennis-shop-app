@@ -720,3 +720,5 @@ touch racquets-routing.module.ts
 ### native html events
  fromEvent function from RxJS we can easily build up an observable stream of window resizing events.
 
+
+### polling 

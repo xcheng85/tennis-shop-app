@@ -696,6 +696,8 @@ core module: all the ngrx stuff, shared service, effects.
 
 ```shell
 ng generate module core
+
+## create user-analytic service in the core module
 ```
 
 ## NGRX Examples: DDD design racquets using ngrx
@@ -710,6 +712,11 @@ ng generate service racquets
 # child routes for domain module: racquets
 touch racquets-routing.module.ts
 # add meta-reducer for logging ngrx events
-
 # use createFeature to simplify
 ```
+
+## Events outside ngrx actions
+
+### native html events
+ fromEvent function from RxJS we can easily build up an observable stream of window resizing events.
+

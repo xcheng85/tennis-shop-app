@@ -704,7 +704,7 @@ core module: all the ngrx stuff, shared service, effects.
 ng generate module core
 ```
 
-### DDD design racquets using ngrx
+## NGRX Examples: DDD design racquets using ngrx
 ```shell
 ng generate module racquets
 
@@ -715,6 +715,5 @@ mkdir -p state && cd state && mkdir -p reducers
 ng generate service racquets
 # child routes for domain module: racquets
 touch racquets-routing.module.ts
-
-
+# add meta-reducer for logging ngrx events
 ```

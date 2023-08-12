@@ -10,13 +10,18 @@ const routes: Routes = [
   {
     path: 'players',
     component: PlayerListComponent,
-    // children: [
-    //   // better approach to solve list and detail
-    //   {
-    //     path: ':id',
-    //     component: PlayerDetailComponent,
-    //   },
-    // ],
+    children: [
+      // // better approach to solve list and detail
+      // {
+      //   path: ':id',
+      //   pathMatch: 'full',
+      //   component: PlayerDetailComponent,
+      //   resolve: {
+      //     // name of the key: player is important (this part very similar to react router)
+      //     player: playerDetailResolver,
+      //   },
+      // },
+    ],
   },
   {
     path: 'players/:id',

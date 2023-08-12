@@ -1,15 +1,15 @@
 <h3 [style]="currentStyles">Player List</h3>
-<!-- <ul>
+<ul>
   <li
     *ngFor="
       let player of (players$ | async)! | sortPlayerByCountry;
       let i = index
     "
   >
-    <a [routerLink]="['./', player.id]">childrouter: {{player.name}}</a>
+    <a [routerLink]="['./', player.id]">{{ player.name }}</a>
   </li>
-</ul> -->
-<ul>
+</ul>
+<!-- <ul>
   <li
     *ngFor="
       let player of (players$ | async)! | sortPlayerByCountry;
@@ -18,7 +18,7 @@
   >
     <a [routerLink]="['/players', player.id]">{{player.name}}</a>
   </li>
-</ul>
+</ul> -->
 <ul>
   <li
     *ngFor="

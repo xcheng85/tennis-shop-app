@@ -18,6 +18,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 
 import { RacquetsModule } from './racquets/racquets.module';
 import { CoreModule } from './core/core.module';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
 
 // console.log all actions
 export function debug(reducer: ActionReducer<any>): ActionReducer<any> {
@@ -42,6 +43,7 @@ export const metaReducers: MetaReducer<any>[] = [debug];
     BrowserModule,
     HttpClientModule,
     PlayersModule, // feature routing module prior to the main app routing module
+    RacquetsModule, // feature routing module prior to the main app routing module
     AuthModule,
     AppRoutingModule,
     BrowserAnimationsModule, // main app routing module
@@ -49,8 +51,8 @@ export const metaReducers: MetaReducer<any>[] = [debug];
     StoreModule.forRoot({}, { metaReducers }),
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
-    RacquetsModule,
     CoreModule,
+    StoreRouterConnectingModule.forRoot(),
   ],
   providers: [
     {

@@ -722,3 +722,18 @@ touch racquets-routing.module.ts
 
 
 ### polling 
+
+
+## ngrx + route store
+
+create the racquet list and racquet detail using route 
+
+```shell
+ng add @ngrx/router-store@latest
+
+cd src/app/racquets
+
+ng generate component racquet-detail
+
+
+```

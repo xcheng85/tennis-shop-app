@@ -34,6 +34,6 @@ import { CreatePlayerV2Component } from './create-player-v2/create-player-v2.com
     MatFormFieldModule,
     MatInputModule
   ],
-  exports: [PlayerListComponent],
+  exports: [PlayersRoutingModule],
 })
 export class PlayersModule {}

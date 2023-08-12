@@ -1,3 +1,5 @@
-<div *ngFor="let r of racquets$ | async">
-  <p>{{ r.name }}</p>
-</div>
+<ul>
+  <li *ngFor="let racquet of (racquets$ | async)!">
+    <a [routerLink]="['./', racquet.id]">{{ racquet.name }}</a>
+  </li>
+</ul>

@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 import { PlayersModule } from '../players/players.module';
 import { racquetsFeature } from './state/racquets.reducer';
 import { RacquetListComponent } from './racquet-list/racquet-list.component';
+import { RacquetEffects } from './effects/racquet.effects';
 
 @NgModule({
   declarations: [
@@ -13,6 +15,7 @@ import { RacquetListComponent } from './racquet-list/racquet-list.component';
     CommonModule,
     PlayersModule,
     StoreModule.forFeature(racquetsFeature),
+    EffectsModule.forFeature(RacquetEffects)
   ],
 })
 export class RacquetsModule {}

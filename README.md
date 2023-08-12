@@ -625,7 +625,6 @@ ng add @ngrx/store@latest
 ng add @ngrx/effects@latest
 ng add @ngrx/store-devtools@latest
 
-
 ```
 
 ### Selector: 
@@ -633,7 +632,6 @@ ng add @ngrx/store-devtools@latest
 read model for your application state. 
 
 CQRS architectural pattern, NgRx separates the read model (selectors) from the write model (reducers).
-
 
 createSelector: function programming. chain of functions
 
@@ -702,10 +700,21 @@ track click events and send that data to our monitoring server.
 ### architecture
 core module: all the ngrx stuff, shared service, effects.
 
-
 ```shell
 ng generate module core
-
 ```
 
-### 
+### DDD design racquets using ngrx
+```shell
+ng generate module racquets
+
+cd src/app/racquets
+
+mkdir -p state && cd state && mkdir -p reducers 
+
+ng generate service racquets
+# child routes for domain module: racquets
+touch racquets-routing.module.ts
+
+
+```

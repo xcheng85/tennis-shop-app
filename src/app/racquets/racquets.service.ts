@@ -28,7 +28,7 @@ export class RacquetsService {
   ];
   constructor(private http: HttpClient) {}
 
-  getRacquets(): Observable<Racquet[]> {
-    return of(this.racquets);
+  getRacquets(brand: string | null | undefined): Observable<Racquet[]> {
+    return of(this.racquets.filter((r) => r.brand === brand));
   }
 }

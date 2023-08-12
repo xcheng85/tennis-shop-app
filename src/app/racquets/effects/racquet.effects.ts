@@ -10,8 +10,8 @@ export class RacquetEffects {
   retrieveRacquetList$ = createEffect(() =>
     this.actions$.pipe(
       ofType(RacquetsApiActions.retrievingRacquetList),
-      exhaustMap(() =>
-        this.racquetsService.getRacquets().pipe(
+      exhaustMap((action) =>
+        this.racquetsService.getRacquets(action.brand).pipe(
           map((racquets) =>
             RacquetsApiActions.retrievedRacquetList({ racquets })
           ),

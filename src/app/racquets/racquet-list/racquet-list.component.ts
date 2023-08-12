@@ -14,6 +14,8 @@ export class RacquetListComponent implements OnInit {
   constructor(private store: Store) {}
 
   ngOnInit(): void {
-    this.store.dispatch(RacquetsApiActions.retrievingRacquetList());
+    this.store.dispatch(
+      RacquetsApiActions.retrievingRacquetList({ brand: 'Wilson' })
+    );
   }
 }

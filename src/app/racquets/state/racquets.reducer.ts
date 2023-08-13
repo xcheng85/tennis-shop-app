@@ -6,7 +6,7 @@ interface State {
   racquets: ReadonlyArray<Racquet>;
 }
 
-const initialState: State = {
+export const initialState: State = {
   racquets: [],
 };
 

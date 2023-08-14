@@ -742,3 +742,6 @@ https://newscrewdriver.com/2023/04/06/angular-three-js-hello-world/
 
 ## with webgl
 https://digizoo.com.au/1447/introduction-to-webgl-using-angular-part-1-how-to-set-up-a-scene/
+
+## vulkan
+https://github.com/SaschaWillems?tab=repositories

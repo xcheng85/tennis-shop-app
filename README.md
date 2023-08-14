@@ -735,5 +735,7 @@ cd src/app/racquets
 
 ng generate component racquet-detail
 
-
 ```
+
+## 3d rendering with three.js
+https://newscrewdriver.com/2023/04/06/angular-three-js-hello-world/

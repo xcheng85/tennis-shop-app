@@ -6,7 +6,7 @@ import { PlayersModule } from '../players/players.module';
 import { RacquetsRoutingModule } from './racquets-routing.module';
 import { racquetsFeature } from './state/racquets.reducer';
 import { RacquetListComponent } from './racquet-list/racquet-list.component';
-import { RacquetEffects } from './effects/racquet.effects';
+import { RacquetEffects } from './state/racquet.effects';
 import { RacquetDetailComponent } from './racquet-detail/racquet-detail.component';
 import {
   getRouterSelectors,

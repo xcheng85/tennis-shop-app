@@ -3,10 +3,10 @@ import { RacquetEffects } from './racquet.effects';
 import { provideMockActions } from '@ngrx/effects/testing';
 import { Observable, of } from 'rxjs';
 import { provideMockStore } from '@ngrx/store/testing';
-import { initialState } from '../state/racquets.reducer';
+import { initialState } from './racquets.reducer';
 import { RacquetsService } from '../racquets.service';
 import { Store } from '@ngrx/store';
-import { RacquetsApiActions } from '../state/racquets.actions';
+import { RacquetsApiActions } from './racquets.actions';
 import { HttpClientModule } from '@angular/common/http';
 
 describe('Effects', () => {

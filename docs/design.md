@@ -8,6 +8,16 @@
 
 ## components
 
+Homepage: navigation, header, footor, popular players and popular racquests, mouse events
+
+Racquets, like
+
+Players, like 
+
+PlayerDetail
+
+RacquetDetail
+
 ### Player
 
 API: 

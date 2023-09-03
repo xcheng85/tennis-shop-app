@@ -1,3 +1,5 @@
 <div class="container">
   <pre>{{ racquet$ | async | json }}</pre>
+  <canvas #canvas id="canvas" [hidden]="enable3dView"></canvas>
+  <button (click)="Toggle3dView()">Toggle 3D</button>
 </div>

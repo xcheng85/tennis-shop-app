@@ -6,10 +6,12 @@
 # module for core functions
 ng generate module vizualization-core-three
 
-# 
+# module for gui
+ng generate module vizualization-gui-lil
 
 ```
-
+# gui 
+dat.gui vs lil-gui
 
 ## scene
 
@@ -37,3 +39,8 @@ offscreen rendering
 OffscreenCanvas
 workers browser
 
+
+
+## js, ts 
+
+bind(this) could be avoid with arror function

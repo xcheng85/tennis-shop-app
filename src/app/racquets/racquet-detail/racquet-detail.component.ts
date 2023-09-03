@@ -7,6 +7,7 @@ import {
 } from '@angular/core';
 import { Store } from '@ngrx/store';
 import * as THREE from 'three';
+import GUI from 'lil-gui';
 import {
   selectTitle,
   selectUrl,
@@ -21,6 +22,7 @@ import {
   Resizer,
 } from 'src/app/vizualization-core-three/entity';
 import { MeshFactoryService } from 'src/app/vizualization-core-three/mesh-factory.service';
+import { GuiFactoryService } from 'src/app/vizualization-gui-lil/gui-factory.service';
 
 @Component({
   selector: 'app-racquet-detail',
@@ -38,7 +40,8 @@ export class RacquetDetailComponent implements OnInit, AfterViewInit {
   constructor(
     private store: Store,
     private initSceneServcie: InitSceneService,
-    private meshFactory: MeshFactoryService
+    private meshFactory: MeshFactoryService,
+    private guiFactory: GuiFactoryService
   ) {}
 
   ngOnInit(): void {
@@ -95,6 +98,10 @@ export class RacquetDetailComponent implements OnInit, AfterViewInit {
       const floor = this.meshFactory.createPlane();
       scene.add(floor);
 
+      // gui
+      const gui = new GUI();
+      this.guiFactory.createHelper(gui, scene);
+
       let step = 0;
       function animate() {
         requestAnimationFrame(animate);
@@ -121,7 +128,7 @@ export class RacquetDetailComponent implements OnInit, AfterViewInit {
       renderer: THREE.Renderer
     ) => {
       // type deduction with instance of
-      if (camera instanceof THREE.PerspectiveCamera){
+      if (camera instanceof THREE.PerspectiveCamera) {
         camera.aspect = window.innerWidth / window.innerHeight;
       }
       camera.updateProjectionMatrix();

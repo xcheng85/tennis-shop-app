@@ -1,15 +1,16 @@
-<h3 [style]="currentStyles">Player List</h3>
-<ul>
-  <li
-    *ngFor="
-      let player of (players$ | async)! | sortPlayerByCountry;
-      let i = index
-    "
-  >
-    <a [routerLink]="['./', player.id]">{{ player.name }}</a>
-  </li>
-</ul>
-<!-- <ul>
+<div class="container">
+  <h3 [style]="currentStyles">Player List</h3>
+  <ul>
+    <li
+      *ngFor="
+        let player of (players$ | async)! | sortPlayerByCountry;
+        let i = index
+      "
+    >
+      <a [routerLink]="['./', player.id]">{{ player.name }}</a>
+    </li>
+  </ul>
+  <!-- <ul>
   <li
     *ngFor="
       let player of (players$ | async)! | sortPlayerByCountry;
@@ -19,45 +20,47 @@
     <a [routerLink]="['/players', player.id]">{{player.name}}</a>
   </li>
 </ul> -->
-<ul>
-  <li
-    *ngFor="
-      let player of (players$ | async)! | sortPlayerByCountry;
-      let i = index
-    "
-    (click)="selectedPlayer = player"
-  >
-    <app-player-view [id]="i"></app-player-view>
-    <!-- #{{ i + 1 }}. {{ player.name }} -->
-  </li>
-</ul>
-<ul>
-  <li *ngFor="let slam of grandslams | keyvalue">
-    {{ slam.key }} {{ slam.value }}
-  </li>
-</ul>
-<ul>
-  <li
-    *ngFor="let player of (players$ | async)!; let i = index"
-    (click)="selectedPlayer = player"
-  >
-    {{ player | json }}
-  </li>
-</ul>
-<app-player-detail
-  #player
-  *ngIf="selectedPlayer; else noPlayer"
-  [player]="selectedPlayer"
-  (liked)="onPlayerLiked($event)"
-></app-player-detail>
-<ng-template #noPlayer>
-  <p>No player selected</p>
-</ng-template>
+  <!-- <ul>
+    <li
+      *ngFor="
+        let player of (players$ | async)! | sortPlayerByCountry;
+        let i = index
+      "
+      (click)="selectedPlayer = player"
+    >
+      <app-player-view [id]="i"></app-player-view>
+    </li>
+  </ul>
+  <ul>
+    <li *ngFor="let slam of grandslams | keyvalue">
+      {{ slam.key }} {{ slam.value }}
+    </li>
+  </ul>
+  <ul>
+    <li
+      *ngFor="let player of (players$ | async)!; let i = index"
+      (click)="selectedPlayer = player"
+    >
+      {{ player | json }}
+    </li>
+  </ul> -->
+  <!-- <app-player-detail
+    #player
+    *ngIf="selectedPlayer; else noPlayer"
+    [player]="selectedPlayer"
+    (liked)="onPlayerLiked($event)"
+  ></app-player-detail>
+  <ng-template #noPlayer>
+    <p>No player selected</p>
+  </ng-template> -->
 
-<h3>Legends</h3>
-<ng-template appPlayerHost></ng-template>
+  <h3>Legends</h3>
+  <ng-template appPlayerHost></ng-template>
 
-<app-grandslams></app-grandslams>
-<app-create-player (playerAdded)="onAdd($event)"></app-create-player>
-<!-- <app-create-player-v2 (playerAdded)="onAdd($event)"></app-create-player-v2> -->
-<!-- <span>{{player.name}}</span> -->
+  <app-grandslams></app-grandslams>
+
+  <h3>Add a Player</h3>
+  <app-create-player (playerAdded)="onAdd($event)"></app-create-player>
+  <!-- <app-create-player-v2 (playerAdded)="onAdd($event)"></app-create-player-v2> -->
+  <!-- <span>{{player.name}}</span> -->
+</div>

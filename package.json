@@ -26,6 +26,7 @@
     "@ngrx/store": "^16.2.0",
     "@ngrx/store-devtools": "^16.2.0",
     "@types/three": "^0.155.1",
+    "lil-gui": "^0.18.2",
     "lodash": "^4.17.21",
     "rxjs": "~7.8.0",
     "three": "^0.156.0",

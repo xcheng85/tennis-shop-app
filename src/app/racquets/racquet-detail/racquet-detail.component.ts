@@ -101,6 +101,7 @@ export class RacquetDetailComponent implements OnInit, AfterViewInit {
       // gui
       const gui = new GUI();
       this.guiFactory.createHelper(gui, scene);
+      this.guiFactory.createRenderer(gui, renderer as THREE.WebGLRenderer)
 
       let step = 0;
       function animate() {

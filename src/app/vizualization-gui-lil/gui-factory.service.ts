@@ -38,6 +38,58 @@ export class GuiFactoryService {
     },
   });
 
+  rendererEnums = {
+    toneMappingOptions: {
+      None: THREE.NoToneMapping,
+      Linear: THREE.LinearToneMapping,
+      Reinhard: THREE.ReinhardToneMapping,
+      Cineon: THREE.CineonToneMapping,
+      ACESFilmic: THREE.ACESFilmicToneMapping,
+      Custom: THREE.CustomToneMapping,
+    },
+    shadowMapping: {
+      Basic: THREE.BasicShadowMap,
+      PCFS: THREE.PCFShadowMap,
+      PCFSoft: THREE.PCFSoftShadowMap,
+      VSM: THREE.VSMShadowMap,
+    },
+    outputEncodings: {
+      Linear: THREE.LinearSRGBColorSpace,
+      sRGB: THREE.SRGBColorSpace,
+    },
+  };
+  registerRendererCallback = (webGLRenderer: THREE.WebGLRenderer) => {
+    const clearColorHolder = new THREE.Color();
+    webGLRenderer.getClearColor(clearColorHolder);
+
+    return {
+      main: {
+        outputColorSpace: webGLRenderer.outputColorSpace,
+      },
+      shadowMap: {
+        enabled: webGLRenderer.shadowMap.enabled,
+        autoUpdate: webGLRenderer.shadowMap.autoUpdate,
+        needsUpdate: () => (webGLRenderer.shadowMap.needsUpdate = true),
+        type: webGLRenderer.shadowMap.type,
+      },
+      toneMapping: {
+        exposure: webGLRenderer.toneMappingExposure,
+        toneMapping: webGLRenderer.toneMapping,
+      },
+      clearSettings: {
+        autoClear: webGLRenderer.autoClear,
+        clearColor: clearColorHolder.getStyle(),
+      },
+      advanced: {
+        autoClearDepth: webGLRenderer.autoClearDepth,
+        autoClearStencil: webGLRenderer.autoClearStencil,
+        checkShaderErrors: webGLRenderer.debug.checkShaderErrors,
+        sortObjects: webGLRenderer.sortObjects,
+        localClippingEnabled: webGLRenderer.localClippingEnabled,
+      },
+    };
+  };
+
   constructor() {}
 
   public createHelper(root: GUI, parent: THREE.Group | THREE.Scene) {
@@ -50,6 +102,44 @@ export class GuiFactoryService {
 
     helpers.close();
   }
+
+  public createRenderer(root: GUI, renderer: THREE.WebGLRenderer) {
+    const cb = this.registerRendererCallback(renderer);
+
+    const rendererFolder = root.addFolder('WebGLRenderer');
+    rendererFolder.add(
+      cb.main,
+      'outputEncoding',
+      this.rendererEnums.outputEncodings
+    );
+    // and subfolder changes, refresh update
+    rendererFolder.onChange((_) => {
+      this.updateWebGLRendererProperties(renderer, cb);
+    });
+
+    const shadowFolder = rendererFolder.addFolder('Shadow');
+    shadowFolder.add(cb.shadowMap, 'enabled');
+    shadowFolder.add(cb.shadowMap, 'autoUpdate');
+    shadowFolder.add(cb.shadowMap, 'needsUpdate');
+    shadowFolder
+      .add(cb.shadowMap, 'type', this.rendererEnums.shadowMapping)
+      .enable(false);
+
+    const toneMappingFolder = rendererFolder.addFolder('ToneMapping');
+    toneMappingFolder.add(cb.toneMapping, 'exposure', 0, 2);
+    toneMappingFolder.add(
+      cb.toneMapping,
+      'toneMapping',
+      this.rendererEnums.toneMappingOptions
+    );
+
+    const clearSettingsFolder = rendererFolder.addFolder('clearSettings');
+    clearSettingsFolder.add(cb.clearSettings, 'autoClear');
+    clearSettingsFolder.addColor(cb.clearSettings, 'clearColor');
+
+    rendererFolder.close();
+  }
+
   // create and add axis helper to the parent
   private axisHelper(parent: THREE.Group | THREE.Scene) {
     const axesHelper = new THREE.AxesHelper(5);
@@ -94,5 +184,19 @@ export class GuiFactoryService {
     } else {
       addGuiComponentFn(parent);
     }
+  }
+
+  private updateWebGLRendererProperties(
+    webGLRenderer: THREE.WebGLRenderer,
+    cb: any
+  ) {
+    webGLRenderer.shadowMap.enabled = cb.shadowMap.enabled;
+    webGLRenderer.shadowMap.autoUpdate = cb.shadowMap.autoUpdate;
+    webGLRenderer.shadowMap.needsUpdate = cb.shadowMap.needsUpdate;
+    webGLRenderer.toneMapping = cb.toneMapping.toneMapping;
+    webGLRenderer.toneMappingExposure = cb.toneMapping.exposure;
+    webGLRenderer.autoClear = cb.clearSettings.autoClear;
+    webGLRenderer.setClearColor(cb.clearSettings.clearColor);
+    webGLRenderer.outputColorSpace = cb.main.outputEncoding;
   }
 }

@@ -39,6 +39,9 @@ offscreen rendering
 OffscreenCanvas
 workers browser
 
+THREE.renderer is interface
+THREE.WebGLRenderer is the impl
+
 
 
 ## js, ts 
